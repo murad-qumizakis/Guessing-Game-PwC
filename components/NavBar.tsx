@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -32,7 +33,7 @@ export default function NavBar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <a href="http://localhost:3000">
-                    <img
+                    <Image
                       className="h-12 w-auto rounded-sm "
                       src="https://www.link-j.org/en/about/introduction-corporate/item/cb8e7d396298d63a04d8438d4de7b126ddbcbbba.png"
                       alt="Your Company"
@@ -57,7 +58,7 @@ export default function NavBar() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       {session ? (
-                        <img
+                        <Image
                           className="h-8 w-8 rounded-full"
                           // USER IMAGE
                           src={
@@ -67,7 +68,7 @@ export default function NavBar() {
                           alt=""
                         />
                       ) : (
-                        <img
+                        <Image
                           className="h-8 w-8 rounded-full"
                           // USER IMAGE
                           src="https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg"
