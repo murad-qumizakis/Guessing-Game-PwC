@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'guessing-game'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_200EAD521DE2487885C06ACBD7E1A809 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DA5E502E181C49F0AE0905236673F91A }}
           package: .
