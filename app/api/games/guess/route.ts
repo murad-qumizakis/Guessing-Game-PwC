@@ -12,8 +12,11 @@ export async function POST(request: NextRequest) {
     console.log("Guess: ", guess);
 
     // // get all games
-    const res = await fetch(`http://localhost:3001/`, {
+    const res = await fetch(`https://guessing-game-api.azurewebsites.net/`, {
       cache: "no-store",
+      headers: {
+        Authorization: process.env.GAME_SERVICE_API_KEY as string,
+      },
     });
     const games = await res.json();
     console.log("Games: ", games);

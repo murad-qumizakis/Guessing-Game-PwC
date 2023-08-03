@@ -37,6 +37,8 @@ export default function NavBar() {
                       className="h-12 w-auto rounded-sm "
                       src="https://www.link-j.org/en/about/introduction-corporate/item/cb8e7d396298d63a04d8438d4de7b126ddbcbbba.png"
                       alt="Your Company"
+                      width={48}
+                      height={48}
                     />
                   </a>
                 </div>
@@ -66,6 +68,8 @@ export default function NavBar() {
                             "https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg"
                           }
                           alt=""
+                          width={32}
+                          height={32}
                         />
                       ) : (
                         <Image
@@ -73,6 +77,8 @@ export default function NavBar() {
                           // USER IMAGE
                           src="https://www.hrlact.org/wp-content/uploads/2020/12/generic-user-icon.jpg"
                           alt=""
+                          width={32}
+                          height={32}
                         />
                       )}
                     </Menu.Button>
