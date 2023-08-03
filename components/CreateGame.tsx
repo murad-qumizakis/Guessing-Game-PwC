@@ -26,7 +26,7 @@ const CreateGame = ({ setGame, session }: SetGameProp) => {
     const response = await fetch("/api/games", {
       method: "POST",
       body: JSON.stringify({
-        name: gameName.slice(0, 18),
+        name: gameName.slice(0, 13),
       }),
       headers: {
         "Content-Type": "application/json",
