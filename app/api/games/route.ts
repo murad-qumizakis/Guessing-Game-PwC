@@ -8,7 +8,7 @@ type Game = {
 
 export async function GET(request: NextRequest) {
   try {
-    const res = await fetch("https://guess-api.azurewebsites.net/", {
+    const res = await fetch(process.env.GAME_SERVER_API_URL as string, {
       cache: "no-store",
       headers: {
         Authorization: process.env.GAME_SERVICE_API_KEY as string,
@@ -28,14 +28,17 @@ export async function POST(request: NextRequest) {
   try {
     const requestData = await request.json(); // Read the request body once
     const { name } = requestData;
-    const res = await fetch("https://guess-api.azurewebsites.net/game", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: process.env.GAME_SERVICE_API_KEY as string,
-      },
-      body: JSON.stringify({ name }),
-    });
+    const res = await fetch(
+      `${process.env.GAME_SERVER_API_URL as string}/game`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: process.env.GAME_SERVICE_API_KEY as string,
+        },
+        body: JSON.stringify({ name }),
+      }
+    );
     const game: Game = await res.json();
     return NextResponse.json(game);
   } catch (e) {
@@ -49,7 +52,7 @@ export async function DELETE(request: NextRequest) {
     if (!id) {
       return NextResponse.json({ message: "No id provided" });
     }
-    await fetch(`https://guess-api.azurewebsites.net/game/${id}`, {
+    await fetch(`${process.env.GAME_SERVER_API_URL as string}/game/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
