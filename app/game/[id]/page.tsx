@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 interface Game {
   id: number;
@@ -11,6 +12,9 @@ export default function Page({ params }: { params: { id: string } }) {
   let [userGuess, setUserGuess] = useState<number>(0);
   let [guessResult, setGuessResult] = useState<string>("");
   let [countdown, setCountdown] = useState<number>(3);
+  const { data: session } = useSession({
+    required: true,
+  });
 
   useEffect(() => {
     if (guessResult === "Correct") {
