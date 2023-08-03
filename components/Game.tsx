@@ -18,9 +18,9 @@ export default function Game(props: GameProps) {
   console.log("SESSION: ", session);
 
   const handleJoinGame = () => {
-    if (!session) {
-      signIn();
-    }
+    // if (!session) {
+    //   signIn();
+    // }
     window.location.href = `/game/${props.id}`;
   };
 
