@@ -15,17 +15,13 @@ export default function Home({ session }: any) {
 
   useEffect(() => {
     async function getGames() {
-      const res = await fetch(
-        "http://guessing-game.azurewebsites.net/api/games/",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: process.env.GAME_SERVICE_API_KEY as string,
-            // fix cors issue
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      );
+      const res = await fetch("/api/games/", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: process.env.GAME_SERVICE_API_KEY as string,
+          // fix cors issue
+        },
+      });
       const data = await res.json();
       setGames(data);
       setLoading(false);
