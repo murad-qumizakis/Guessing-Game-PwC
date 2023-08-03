@@ -26,7 +26,11 @@ export default function Home({ session }: any) {
       setGames(data);
       setLoading(false);
     }
-    getGames();
+    try {
+      getGames();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
