@@ -8,7 +8,8 @@ type Game = {
 
 export async function GET(request: NextRequest) {
   try {
-    console.log("ILIA HELO: ", process.env);
+    console.log("ILIA HELO: ", process.env.GAME_SERVER_API_URL);
+    console.log("ILIA HEY: ", process.env.GAME_SERVICE_API_KEY);
     const res = await fetch(process.env.GAME_SERVER_API_URL as string, {
       cache: "no-store",
       headers: {
