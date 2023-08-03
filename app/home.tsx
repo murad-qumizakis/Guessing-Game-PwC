@@ -9,14 +9,6 @@ type Game = {
   randomNumber: number;
 };
 
-type session = {
-  user: {
-    name: string;
-    email: string;
-    image: string;
-  };
-};
-
 export default function Home({ session }: any) {
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,6 +21,8 @@ export default function Home({ session }: any) {
           headers: {
             "Content-Type": "application/json",
             Authorization: process.env.GAME_SERVICE_API_KEY as string,
+            // fix cors issue
+            "Access-Control-Allow-Origin": "*",
           },
         }
       );

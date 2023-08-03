@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
       cache: "no-store",
       headers: {
         Authorization: process.env.GAME_SERVICE_API_KEY as string,
+        "Access-Control-Allow-Origin": "*",
       },
     });
 
