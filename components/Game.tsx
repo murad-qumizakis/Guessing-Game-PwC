@@ -21,11 +21,11 @@ export default function Game(props: GameProps) {
     if (!session) {
       signIn();
     }
-    window.location.href = `http://guessing-game.azurewebsites.net/game/${props.id}`;
+    window.location.href = `/game/${props.id}`;
   };
 
   const handleDeleteGame = () => {
-    fetch("http://guessing-game.azurewebsites.net/api/games/", {
+    fetch("/api/games/", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { id: string } }) {
       }
 
       // delete the game with that id
-      fetch("http://guessing-game.azurewebsites.net/api/games/", {
+      fetch("/api/games/", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -44,16 +44,13 @@ export default function Page({ params }: { params: { id: string } }) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const res = await fetch(
-        "http://guessing-game.azurewebsites.net/api/games/guess",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            id: +params.id,
-            guess: userGuess,
-          }),
-        }
-      );
+      const res = await fetch("/api/games/guess", {
+        method: "POST",
+        body: JSON.stringify({
+          id: +params.id,
+          guess: userGuess,
+        }),
+      });
 
       let result = await res.json();
       setGuessResult(result.message);
