@@ -32,7 +32,7 @@ export default function NavBar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a href="http://localhost:3000">
+                  <a href="http://guessing-game.azurewebsites.net/">
                     <Image
                       className="h-12 w-auto rounded-sm "
                       src="https://www.link-j.org/en/about/introduction-corporate/item/cb8e7d396298d63a04d8438d4de7b126ddbcbbba.png"

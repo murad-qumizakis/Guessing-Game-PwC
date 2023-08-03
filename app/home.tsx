@@ -23,7 +23,15 @@ export default function Home({ session }: any) {
 
   useEffect(() => {
     async function getGames() {
-      const res = await fetch("http://localhost:3000/api/games/");
+      const res = await fetch(
+        "http://guessing-game.azurewebsites.net/api/games/",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: process.env.GAME_SERVICE_API_KEY as string,
+          },
+        }
+      );
       const data = await res.json();
       setGames(data);
       setLoading(false);
