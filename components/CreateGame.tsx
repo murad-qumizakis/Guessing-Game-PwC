@@ -32,7 +32,8 @@ const CreateGame = ({ setGame, session }: SetGameProp) => {
         }),
         headers: {
           "Content-Type": "application/json",
-          Authorization: process.env.GAME_SERVICE_API_KEY as string,
+          Authorization: ("Bearer " +
+            process.env.GAME_SERVICE_API_KEY) as string,
         },
       }
     );

@@ -18,7 +18,8 @@ export default function Home({ session }: any) {
       const res = await fetch("/api/games/", {
         headers: {
           "Content-Type": "application/json",
-          Authorization: process.env.GAME_SERVICE_API_KEY as string,
+          Authorization: ("Bearer " +
+            process.env.GAME_SERVICE_API_KEY) as string,
           // fix cors issue
         },
       });
