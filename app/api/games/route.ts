@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     const res = await fetch(process.env.GAME_SERVER_API_URL as string, {
       cache: "no-store",
       headers: {
-        Authorization: process.env.GAME_SERVICE_API_KEY as string,
+        Authorization: "Bearer " + process.env.GAME_SERVICE_API_KEY,
         "Access-Control-Allow-Origin": "*",
       },
     });
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: process.env.GAME_SERVICE_API_KEY as string,
+          Authorization: "Bearer " + process.env.GAME_SERVICE_API_KEY,
         },
         body: JSON.stringify({ name }),
       }
@@ -56,7 +56,7 @@ export async function DELETE(request: NextRequest) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: process.env.GAME_SERVICE_API_KEY as string,
+        Authorization: "Bearer " + process.env.GAME_SERVICE_API_KEY,
       },
     });
     return NextResponse.json({ message: "Game deleted" });

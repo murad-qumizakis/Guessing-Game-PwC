@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const res = await fetch(process.env.GAME_SERVER_API_URL as string, {
       cache: "no-store",
       headers: {
-        Authorization: process.env.GAME_SERVICE_API_KEY as string,
+        Authorization: "Bearer " + process.env.GAME_SERVICE_API_KEY,
       },
     });
     const games = await res.json();
