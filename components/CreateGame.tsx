@@ -23,20 +23,16 @@ const CreateGame = ({ setGame, session }: SetGameProp) => {
     // if the game name is longer than 13 characters, only use the first 13
     const gameNameLength = gameName.length;
 
-    const response = await fetch(
-      "http://guessing-game.azurewebsites.net/api/games",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          name: gameName.slice(0, 18),
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: ("Bearer " +
-            process.env.GAME_SERVICE_API_KEY) as string,
-        },
-      }
-    );
+    const response = await fetch("/api/games", {
+      method: "POST",
+      body: JSON.stringify({
+        name: gameName.slice(0, 18),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: ("Bearer " + process.env.GAME_SERVICE_API_KEY) as string,
+      },
+    });
 
     if (response.ok) {
       const newGame = await response.json();
